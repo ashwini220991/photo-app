@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-    
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:picture) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -15,7 +14,8 @@
     <% @images.each do |image| %>
       <tr>
         <td><%= link_to image.name, image_path(image) %></td>
-        <td><%= image_tag image.picture.url, size: "100x100" %></td>
+        <td style="background-image: url('<%= image.picture.url %>');background-size:250px 180px;   width: 250px; height: 180px;"></td>
+        
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_image_path(image), :class => 'btn btn-default btn-xs' %>
